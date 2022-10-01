@@ -136,3 +136,64 @@ Blade é um template engine usado pelo Laravel.
 A resposta do método view dos controllers do Laravel contém o método "with", 
 que serve para inserir parâmetros na resposta. É uma maneira mais expressiva
 de atribuir conteúdo às respostas.
+
+Lembra das convenções dos nomes dos métodos/URI/rotas? Eles se aplicam também
+às views do Laravel. Para garantir a separação, dentro da pasta resources/views
+criamos uma pasta para cada controller, e nessa pasta criamos as views conforme
+o nome do método. 
+
+Exemplo para o controller Photo, com os métodos index, create, edit e show:
+    resources\views\photo
+        -> index.blade.php
+        -> create.blade.php
+        -> edit.blade.php
+        -> show.blade.php
+
+Essas views são suficientes porque os métodos PUT/PATCH, DELETE e POST não
+demanda a criação de um HTML próprio.
+
+Para referenciar as views no controller, use a mesma convenção de nomenclatura
+no retorno do método view (nomeController.metodo):
+    class Photo{
+        public function index(Request $request)
+        {
+            return view('photo.index')->with('foo', 'bar');
+        }
+        public function create(Request $request)
+        {
+            return view('photo.create')->with('foo', 'bar');
+        }
+        public function edit(Request $request)
+        {
+            return view('photo.edit')->with('foo', 'bar');
+        }
+        public function show(Request $request)
+        {
+            return view('photo.show')->with('foo', 'bar');
+        }
+    }
+
+
+O componente de layout padrão deve ficar no path resources\views\components.
+Se o layout se chamasse "padrao", o caminho seria:
+    resources\views\components\padrao.blade.php
+
+O placeholder para os HTMLs que vai preencher o layout é a variável {{ $slot }}.
+
+O arquivo de layout também pode ter outras variáveis, mas elas são fornecidas 
+pelo HTML que vai preencher o layout (ver o exemplo da variável {{ $title }}),
+não pelo controller.
+
+Essa variável $title é fornecida em parâmetros do arquivo preenchedor, cujo 
+HTML deve ser assim:
+    <x-{arquivo-blade} variavel="Conteúdo" title="Título">
+        ... restante do HTML ...
+    </x-{arquivo-blade}>
+
+
+Há um comando para criação de componentes no artisan:
+    php artisan make:componente NomeDoComponente
+
+Com isso, dois arquivos associados a NomeDoComponente são criados:
+    app\View\Components\NomeDoComponente.php (para backend).
+    resources\views\components\nome-do-componente.blade.php (para frontend).
