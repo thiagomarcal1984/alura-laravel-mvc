@@ -18,3 +18,22 @@ dados ou fazer hash de senhas:
     > @php artisan key:generate --ansi
 
     INFO  Application key set successfully.
+
+Para rodar a aplicação do Laravel, execute:
+    php artisan serve
+    ou 
+    php artisan serve --port 80
+    ou
+    php artisan serve --host 0.0.0.0 --port 8000
+
+No rodapé da página padrão são exibidas as versões do PHP e do Laravel em uso.
+
+O arquivo routes/web.php contém as rotas para as views criadas pelo 
+desenvolvedor. A sintaxe para as rotas é: 
+
+    Route::metodoHttp('/URI precedida de barra', function() {
+        return view('nome_da_view');
+    });
+
+Se houver algum erro no código gerenciado pelo Laravel, ele será exibido em
+detalhes no navegador, para facilitar o debug.
