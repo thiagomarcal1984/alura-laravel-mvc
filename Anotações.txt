@@ -6,7 +6,7 @@ config = arquivos de configuração específicos para a aplicação.
 database = configurações de banco de dados.
 lang = internacionalização do conteúdo.
 public = a pasta acessível pelo servidor web.
-resouces = onde se guardam os recursos de Front End.
+resources = onde se guardam os recursos de Front End.
 routes = configuração das rotas da aplicação.
 storage = armazenamento de mídia de usuários (arquivos de upload etc).
 tests = configurações de testes unitários.
@@ -42,3 +42,21 @@ Como uma rota pode chamar um método de um controlador:
     Route::metodoHttp('/rota', [ClasseDoController::class,'nome do metodo']);
     ou
     Route::metodoHttp('/rota', ['Namespace\NomeController','nome do metodo']);
+
+O comando php artisan (sem outros parâmetros) lista os parâmetros que podem ser
+usados pelo artisan. O comando a seguir cria um controlador:
+
+    php artisan make:controller NomeController
+
+Fornecendo o parâmetro --resources para o make:controller, o Controller é 
+criado com alguns métodos que seguem a convenção do Laravel para métodos HTTP,
+rotas e os nomes dos métodos. A seguir, um exemplo para o Controller Photo: 
+
+    Verb        URI                     Action      Route Name
+    GET         /photos                 index       photos.index
+    GET         /photos/create	        create      photos.create
+    POST        /photos	                store       photos.store
+    GET         /photos/{photo}         show        photos.show
+    GET         /photos/{photo}/edit    edit        photos.edit
+    PUT/PATCH   /photos/{photo}         update      photos.update
+    DELETE      /photos/{photo}         destroy     photos.destroy
