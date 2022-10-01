@@ -197,3 +197,25 @@ Há um comando para criação de componentes no artisan:
 Com isso, dois arquivos associados a NomeDoComponente são criados:
     app\View\Components\NomeDoComponente.php (para backend).
     resources\views\components\nome-do-componente.blade.php (para frontend).
+
+Nós temos 2 tipos de componentes. Os componentes baseados em classes e os 
+componentes anônimos. Componentes anônimos são os que possuem apenas um arquivo
+de view, como o nosso caso do layout. Não é necessário criar uma classe para 
+isso. Já os componentes baseados em classes possuem uma classe que pode 
+manipular livremente os dados deste componente.
+
+Criamos um componente baseado em classe com o comando make:component. Se 
+quisermos criar um componente anônimo, como nosso layout, poderíamos executar:
+    php artisan make:component layout –view. 
+    
+Como não há classe, podemos deixar o nome em minúsculo mesmo.
+
+Caso a gente queira separar nosso componentes em pastas, por exemplo, 
+forms/input.blade.php, podemos sem problemas. Na hora de utilizá-lo, vamos 
+referenciá-lo como <x-forms.input>, usando o . como separador. Assim podemos 
+manter nossos componentes organizados.
+
+Há muito mais para aprender sobre componentes e caso você queira se 
+aprofundar, pode conferir este link:
+
+    https://laravel.com/docs/9.x/blade#components
