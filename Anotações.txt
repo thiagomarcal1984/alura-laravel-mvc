@@ -1,0 +1,20 @@
+Estrutura de Pastas do Laravel:
+
+app = código que o framework vai usar (modelos, controllers, exceptions etc).
+bootstrap = inicialização do Laravel.
+config = arquivos de configuração específicos para a aplicação.
+database = configurações de banco de dados.
+lang = internacionalização do conteúdo.
+public = a pasta acessível pelo servidor web.
+resouces = onde se guardam os recursos de Front End.
+routes = configuração das rotas da aplicação.
+storage = armazenamento de mídia de usuários (arquivos de upload etc).
+tests = configurações de testes unitários.
+vendor = bibliotecas instaladas pelo Composer/Laravel.
+
+O código abaixo é gerado automaticamente pelo Composer. Serve para criptografar
+dados ou fazer hash de senhas:
+
+    > @php artisan key:generate --ansi
+
+    INFO  Application key set successfully.
