@@ -77,3 +77,23 @@ Métodos para redirecionar respostas no Laravel:
     public function index() {
         return redirect('http://www.google.com');
     }
+
+
+O objeto de Request do Laravel nos dá várias formas de fazer a mesma coisa.
+
+Por exemplo, para buscar um dado da query string, podemos usar o método get.
+Porém nós também podemos utilizar o método query, obtendo o mesmo resultado.
+
+A diferença entre o método get e o método query é que o método get busca o 
+dado de qualquer lugar do nosso request, seja da query string ou mesmo de um 
+campo enviado por post. Por isso o ideal é utilizar o método query para que 
+nosso código fique mais explícito, deixando claro de onde vamos buscar o dado
+(ou seja: "query" busca da query string, e "get" busca tanto dos parâmetros 
+do método POST quanto da query string do método GET).
+
+    Illuminate\Http\Request::get
+        This method belongs to Symfony HttpFoundation and is not 
+        usually needed when using Laravel.
+
+    Illuminate\Http\Concerns\InteractsWithInput::query
+        Retrieve a query string item from the request.
