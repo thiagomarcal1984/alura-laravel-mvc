@@ -60,3 +60,20 @@ rotas e os nomes dos métodos. A seguir, um exemplo para o Controller Photo:
     GET         /photos/{photo}/edit    edit        photos.edit
     PUT/PATCH   /photos/{photo}         update      photos.update
     DELETE      /photos/{photo}         destroy     photos.destroy
+
+A função response no Laravel acrescenta informações de cabeçalho e statuscode:
+    public function index(Request request) {
+        ...
+        return response($resposta, 200, ['HeaderKey' => 'HeaderValue']);
+    }
+
+Métodos para redirecionar respostas no Laravel:
+    public function index(){
+        return response('', 302, ['Location' => 'http://www.google.com']);
+    }
+
+    ou
+
+    public function index() {
+        return redirect('http://www.google.com');
+    }
