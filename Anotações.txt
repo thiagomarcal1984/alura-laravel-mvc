@@ -37,3 +37,8 @@ desenvolvedor. A sintaxe para as rotas é:
 
 Se houver algum erro no código gerenciado pelo Laravel, ele será exibido em
 detalhes no navegador, para facilitar o debug.
+
+Como uma rota pode chamar um método de um controlador:
+    Route::metodoHttp('/rota', [ClasseDoController::class,'nome do metodo']);
+    ou
+    Route::metodoHttp('/rota', ['Namespace\NomeController','nome do metodo']);
