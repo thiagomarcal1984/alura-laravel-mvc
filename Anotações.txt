@@ -97,3 +97,29 @@ do método POST quanto da query string do método GET).
 
     Illuminate\Http\Concerns\InteractsWithInput::query
         Retrieve a query string item from the request.
+
+Separando o HTML do Controller.
+Duas formas de associar um método a uma view no Laravel: 
+    return view('listar-series', [
+        'series' => $series // Array associativo.
+    ]);
+
+    ou
+
+    return view('listar-series', 
+        compact('series') // Um único elemento como parâmetro.
+    );
+
+    ou
+
+    return view('listar-series', 
+        compact(['series']) // Um array como parâmetro.
+    );
+
+A função compact recebe uma lista de strings e cria um array associativo em
+que o índice corresponde ao nome da variável. Exemplo: 
+    $array = compact('var1', 'var2');
+
+        equivale a:
+
+    $array = ['var1' => $var1, 'var2' => $var2];
