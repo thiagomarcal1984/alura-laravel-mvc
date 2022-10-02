@@ -245,3 +245,29 @@ ela é ignorada pelo .gitignore).
 
 A dependência que nos interessa é o Laravel Mix, que simplifica o uso de uma
 ferramenta de controle de frontend chamada Webpack. 
+
+
+Após o lançamento deste treinamento, ainda na versão 9 no Laravel, o Mix foi 
+substituído por uma ferramenta chamada Vite. O propósito é muito parecido então 
+vale a pena pesquisar sobre a migração depois, mas para continuarmos neste 
+treinamento seguindo as etapas que foram realizadas no treinamento, vamos 
+instalar o Mix (que continua sendo uma ferramenta válida e atual).
+
+Para instalar o Laravel mix, execute:
+    npm install laravel-mix --save-dev
+
+Depois crie na raiz do projeto o arquivo webpack.mix.js com o conteúdo:
+    const mix = require('laravel-mix');
+
+Para executar corretamente o comando npm run dev e o mix ser executado, altere 
+a linha "dev": "vite", para "dev": "mix",.
+
+Isso deve ser o suficiente para você seguir usando o Mix como ferramenta para 
+o front-end.
+
+Repetindo, o Mix continua sendo uma ferramenta válida, mas o Laravel agora vem 
+com o Vite instalado por padrão que funciona de uma forma relativamente 
+semelhante. Quando você já estiver mais confortável com o framework e tudo 
+estiver funcionando, pode tentar a migração do Mix para o Vite. 
+
+Guia de migração: https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite
