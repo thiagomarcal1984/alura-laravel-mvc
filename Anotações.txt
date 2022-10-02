@@ -275,3 +275,17 @@ Guia de migração: https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#
 O comando asset na tag link do arquivo layout.blade.php serve para flexibilizar
 o servidor onde os arquivos estáticos serão servidos (pode ser local, ou de um
 outro servidor de arquivos).
+
+A pasta config tem os arquivos de configurações para várias coisas, tais como
+bancos de dados, e-mail, logging, filas etc. Essas configurações geralmente
+se baseiam em variáveis de ambiente.
+
+Para definir o database usado pelo Laravel para sqlite, edite o arquivo .env,
+inserindo a seguinte linha: 
+    DB_CONNECTION=sqlite
+
+O arquivo .env, na raiz da aplicação, é ignorado pelo .gitignore.
+
+O arquivo .env.example é um exemplo de variáveis de ambiente com conteúdo 
+falso, que facilitam a memorização dos parâmetros sem dizer quais são seus
+valores reais.
