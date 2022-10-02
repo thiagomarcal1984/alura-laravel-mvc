@@ -3,22 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Js;
 
 class SeriesController extends Controller
 {
     public function index(){
-        $series = [
-            'Punisher',
-            'Lost',
-            'Grey\'s Anatomy',
-        ];
-
+        $series = DB::select('SELECT nome FROM series;');
+        // dd($series); // var_dump && die do Laravel.
         return view('series.index')->with('series', $series);
     }
 
     public function create(){
         return view('series.create');
+    }
+    
+    public function store(Request $request){
+        $nome = $request->input('nome');
+        if(DB::insert('INSERT INTO series (nome) VALUES (?)', [$nome])) {
+            echo "Ok";
+        } else {
+            echo "Deu erro";
+        }
+        // return view('series.index');
     }
 
     public function exemplo(){

@@ -308,3 +308,35 @@ No arquivo de migração gerado, podemos definir o que será escrito no database
 
 Para aplicar as migrações, use o comando:
     php artisan migrate
+
+Assim como no Django, o Laravel também usa CSRF tokens, inseridos assim:
+    <form action="url" method="post">
+        @csrf
+
+        <label for ...>Rótulo</label>
+        ...
+        <button ...>Enviar</button>
+    </form>
+
+A fachada Illuminate\Support\Facades\DB serve para executar SQL.
+
+O comando DB::insert exige uma string com o SQL e um array com os valores que
+alimentarão os parâmetros da string com o SQL (nos pontos de interrogação).
+
+O Laravel tem um comando para facilitar o debug: o dump and die (dd):
+    dd($variavel);
+
+A tela do navegador exibe na página uma estrutura para navegar no dump da
+variável, o que é melhor do que fazer a leitura no console.
+
+DB::select retorna um array de objetos, não um array de arrays associativos.
+Então, se o retorno de DB::select fosse para a variável $var e buscássemos as
+colunas nome e data_nascimento, nós acessaríamos assim:
+
+    $nome = $var->nome;
+    $data_nascimento = $var->data_nascimento;
+
+    ... e não como:
+
+    $nome = $var['nome'];
+    $data_nascimento = $var['data_nascimento'];
