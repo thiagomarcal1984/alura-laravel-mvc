@@ -219,3 +219,12 @@ Há muito mais para aprender sobre componentes e caso você queira se
 aprofundar, pode conferir este link:
 
     https://laravel.com/docs/9.x/blade#components
+
+Para escapar caracteres que poderiam ser usados em frameworks/bibliotecas de
+JavaScript (ex.: {{ variavel }} ), coloque uma arroba antes do código:
+
+    @{{ variavelJavaScript }}
+
+Método do Laravel para converter um array para JSON:
+    Js::from($array)
+    
