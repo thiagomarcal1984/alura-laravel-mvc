@@ -228,3 +228,9 @@ JavaScript (ex.: {{ variavel }} ), coloque uma arroba antes do código:
 Método do Laravel para converter um array para JSON:
     Js::from($array)
     
+Link sobre XSS (Cross-Site Scripting):
+    https://www.youtube.com/watch?v=lntsVxPZibw
+
+Ideia: evitar que scripts maliciosos sejam executados. Para isso:
+    1) Limpe a entrada;
+    2) Escape a saída.
