@@ -369,3 +369,6 @@ O vídeo fala sobre as duas abordagens para ORMs:
         operações de interação com o banco de dados. As responsabilidades ficam
         separadas: o modelo descreve o objeto de domínio, enquanto o Entity 
         Manager interage com o banco.
+
+Para construir queries no Eloquent com cláusulas WHERE, veja este link: 
+    https://laravel.com/docs/9.x/eloquent#building-queries
