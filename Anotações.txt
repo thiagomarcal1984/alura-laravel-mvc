@@ -340,3 +340,19 @@ colunas nome e data_nascimento, nós acessaríamos assim:
 
     $nome = $var['nome'];
     $data_nascimento = $var['data_nascimento'];
+
+Para criar uma classe de modelo no Laravel, use o comando:
+    php artisan make:model NomeDoModelo
+
+O modelo criado estende da classe Model do ORM PHP Eloquent.
+
+Uma vez que o modelo for criado, podemos acessar o banco de dados com ele:
+    $objeto = new NomeDoModelo(); // Cria o objeto.
+    $objeto->nome = $request->input('nome'); // Atribui valores.
+    $objeto->save(); // Persiste no database.
+
+    NomeDoModelo::all(); // Busca todos os registros da tabela de NomeDoModelo.
+
+Detalhe: usando os comandos de inserção, as colunas updated_at e created_at são
+automaticamente atualizadas na inserção, sem a necessidade de o desenvolvedor 
+inseri-las na sua lógica.

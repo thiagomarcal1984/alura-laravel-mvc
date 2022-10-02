@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Js;
@@ -9,7 +10,10 @@ use Illuminate\Support\Js;
 class SeriesController extends Controller
 {
     public function index(){
-        $series = DB::select('SELECT nome FROM series;');
+        // $series = Serie::all(); // Retorna todos os registros da tabela series.
+        $series = Serie::query() // Declara a query.
+            ->orderBy('nome', 'asc') // Define a ordenação  (asc ou desc) e por qual coluna.
+            ->get(); // Executa a query.
         // dd($series); // var_dump && die do Laravel.
         return view('series.index')->with('series', $series);
     }
@@ -20,12 +24,11 @@ class SeriesController extends Controller
     
     public function store(Request $request){
         $nome = $request->input('nome');
-        if(DB::insert('INSERT INTO series (nome) VALUES (?)', [$nome])) {
-            echo "Ok";
-        } else {
-            echo "Deu erro";
-        }
-        // return view('series.index');
+        $serie = new Serie();
+        $serie->nome = $nome;
+        $serie->save();
+
+        return redirect('/series');
     }
 
     public function exemplo(){
