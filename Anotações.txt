@@ -356,3 +356,16 @@ Uma vez que o modelo for criado, podemos acessar o banco de dados com ele:
 Detalhe: usando os comandos de inserção, as colunas updated_at e created_at são
 automaticamente atualizadas na inserção, sem a necessidade de o desenvolvedor 
 inseri-las na sua lógica.
+
+Vídeo sobre o padrão Active-Record (padrão usado no ORM Eloquent da Laravel):
+    https://www.youtube.com/watch?v=WXLUYFC5jok
+
+O vídeo fala sobre as duas abordagens para ORMs:
+    1)  Active Record: As classes de modelo estendem de uma classe que contém
+        métodos para a interação do banco de dados. A desvantagem é que as 
+        classes de negócio ficam muito acopladas ao framework.
+
+    2)  Data Mapper: Um Entity Manager busca as classes de modelo e realiza as
+        operações de interação com o banco de dados. As responsabilidades ficam
+        separadas: o modelo descreve o objeto de domínio, enquanto o Entity 
+        Manager interage com o banco.
