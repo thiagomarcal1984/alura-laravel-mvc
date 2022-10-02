@@ -234,3 +234,14 @@ Link sobre XSS (Cross-Site Scripting):
 Ideia: evitar que scripts maliciosos sejam executados. Para isso:
     1) Limpe a entrada;
     2) Escape a saída.
+
+O arquivo package.json contém dependências baixáveis com o node/npm:
+    npm install
+    ou
+    npm install package.json
+
+As instalações dessas dependências ficam na pasta node_modules, (na raiz, e 
+ela é ignorada pelo .gitignore).
+
+A dependência que nos interessa é o Laravel Mix, que simplifica o uso de uma
+ferramenta de controle de frontend chamada Webpack. 
