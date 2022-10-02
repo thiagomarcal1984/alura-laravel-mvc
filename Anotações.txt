@@ -289,3 +289,22 @@ O arquivo .env, na raiz da aplicação, é ignorado pelo .gitignore.
 O arquivo .env.example é um exemplo de variáveis de ambiente com conteúdo 
 falso, que facilitam a memorização dos parâmetros sem dizer quais são seus
 valores reais.
+
+Estrutura da pasta database:
+    seeders = criadores de dados iniciais para a aplicação.
+    factories = fábricas de dummy data.
+    migrations = versiona o banco de dados.
+
+Para criar uma migração no Laravel, use o comando:
+    php artisan make:migration nome_da_migracao
+
+No arquivo de migração gerado, podemos definir o que será escrito no database:
+
+        $table->string('nome', 128)->unique(); 
+        // Cria uma string chamada 'nome' com limite de 128 caracteres e única.
+
+        $table->timestamps();
+        // Cria duas colunas: created_at e updated_at.
+
+Para aplicar as migrações, use o comando:
+    php artisan migrate
