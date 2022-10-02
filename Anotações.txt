@@ -271,3 +271,7 @@ semelhante. Quando você já estiver mais confortável com o framework e tudo
 estiver funcionando, pode tentar a migração do Mix para o Vite. 
 
 Guia de migração: https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite
+
+O comando asset na tag link do arquivo layout.blade.php serve para flexibilizar
+o servidor onde os arquivos estáticos serão servidos (pode ser local, ou de um
+outro servidor de arquivos).
